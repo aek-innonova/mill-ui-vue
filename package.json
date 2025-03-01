@@ -5,14 +5,21 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
+    "build": "run-p type-check \"build-only {@}\"  && npm run nginx-copy",
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "nginx-copy": "sudo cp -R ./dist/* /var/www/mill-ui/",
+    "nginx-install": "sudo cp nginx.conf /etc/nginx/sites-available/mill-ui",
+    "nginx-enable": "sudo ln -s /etc/nginx/sites-available/mill-ui /etc/nginx/sites-enabled/",
+    "nginx-restart": "sudo systemctl restart nginx"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.0.9",
+    "socket.io-client": "^4.8.1",
+    "tailwindcss": "^4.0.9",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },

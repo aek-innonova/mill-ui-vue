@@ -1,35 +1,24 @@
 @import './base.css';
 
+@font-face {
+  font-family: lcd;
+  descent-override: 10%;
+  src: url(@/assets/lcd.ttf);
+}
+
+@theme {
+  --font-lcd: lcd;
+}
+
+html,
+body {
+  @apply m-0 p-0 bg-black text-green-500 overflow-hidden h-full;
+}
+
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+  @apply m-0 p-0 h-full;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+button {
+  @apply border p-4;
 }
